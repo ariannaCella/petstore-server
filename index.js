@@ -51,6 +51,28 @@ app.get('/getfood', (req, res) => {
     });
     })
 
+    app.get('/getGiochiCane', (req, res) => {
+      let queryString = 'SELECT * FROM accessori WHERE specie=1';
+      connection.query(queryString, function(err, result, fields) {
+      if (err) throw err;
+      for (let i in result) {
+        console.log('name: ', result[i].Nome);
+      }
+      res.send(result)
+      });
+      })
+      
+      
+    app.get('/getGiochiGatto', (req, res) => {
+        let queryString = 'SELECT * FROM accessori WHERE specie=2';
+        connection.query(queryString, function(err, result, fields) {
+        if (err) throw err;
+        for (let i in result) {
+          console.log('name: ', result[i].Nome);
+        }
+        res.send(result)
+        });
+        })
 
 app.listen(process.env.PORT || 3001, ()=>{
     console.log("Backend server is running!");
