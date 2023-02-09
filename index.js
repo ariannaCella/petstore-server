@@ -24,6 +24,6 @@ let connection = mysql.createConnection({
 app.use(express.json());
 app.use("/api/user", userRoute); //cosa fa use?
 
-app.listen(process.env.PORT || 5000, ()=>{
+app.listen(process.env.PORT || 3000, ()=>{
     console.log("Backend server is running!");
 })
