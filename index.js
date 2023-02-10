@@ -210,7 +210,7 @@ app.get('/getCatFoodUmido', (req, res) => {
       })
 
     app.get('/getAll', (req, res) => {
-      let queryString = "SELECT Id, Nome, Marca, Descrizione, Prezzo, Img FROM  accessori";
+      let queryString = "SELECT * FROM  catalogo ORDER BY Nome ASC";
       connection.query(queryString, function(err, result, fields) {
       if (err) throw err;
       for (let i in result) {
