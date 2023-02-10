@@ -209,6 +209,17 @@ app.get('/getCatFoodUmido', (req, res) => {
       });
       })
 
+    app.get('/getAll', (req, res) => {
+      let queryString = "SELECT Id, Nome, Marca, Descrizione, Prezzo, Img FROM  accessori";
+      connection.query(queryString, function(err, result, fields) {
+      if (err) throw err;
+      for (let i in result) {
+        console.log('name: ', result[i].Nome);
+      }
+      res.send(result)
+      });
+      })
+
 app.listen(process.env.PORT || 3001, ()=>{
     console.log("Backend server is running!");
 })
