@@ -4,7 +4,7 @@ const app=express();
 const mysql= require("mysql");
 const dotenv = require("dotenv");
 const bodyParser = require('body-parser');
-const userRoute = require("./routes/user");
+//const userRoute = require("./routes/user");
 dotenv.config();
 
 let connection = mysql.createConnection({
@@ -21,9 +21,10 @@ let connection = mysql.createConnection({
     }
     console.log('DB Success! connected as id ' + connection.threadId);
 });
+let TotOrder=0;
 
 app.use(express.json());
-app.use("/api/user", userRoute); //cosa fa use?
+//app.use("/api/user", userRoute); //cosa fa use?
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
@@ -218,6 +219,23 @@ app.get('/getCatFoodUmido', (req, res) => {
       }
       res.send(result)
       });
+      })
+
+      app.post('/generateOrder',(req,res)=>{
+        const name= req.body.customer.name;
+        const surname= req.body.customer.lastName;
+        const email= req.body.customer.email;
+        const address= req.body.customer.address;
+        const products=req.body.order_details;
+        
+        console.log("nome:"+ name+ " cognome: "+surname+"\n email"+email+" address: "+ address+ "\n orderdetails:"+products[0].Nome);
+        TotOrder++;
+        console.log("json: "+JSON.stringify(products));
+        let queryString = "INSERT into ordine VALUES ("+TotOrder+" , '"+name+"' , '"+surname+"' , '"+email+"' , '"+address+"' , '"+JSON.stringify(products)+"' ) ";
+        connection.query(queryString, function(err, result) {
+        if (err) throw err;
+      });
+    //res.send("ordine effettuato:\n nome:"+ name+ " cognome: "+surname);
       })
 
 app.listen(process.env.PORT || 3001, ()=>{
