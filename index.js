@@ -2,10 +2,8 @@ console.log('hello')
 const express= require("express");
 const app=express();
 const mysql= require("mysql");
-const dotenv = require("dotenv");
-const bodyParser = require('body-parser');
-//const userRoute = require("./routes/user");
-dotenv.config();
+//const bodyParser = require('body-parser');
+
 
 let connection = mysql.createConnection({
     host     : 'localhost',
@@ -24,7 +22,7 @@ let connection = mysql.createConnection({
 let TotOrder=0;
 
 app.use(express.json());
-//app.use("/api/user", userRoute); //cosa fa use?
+
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
