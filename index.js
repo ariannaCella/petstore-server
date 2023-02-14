@@ -34,9 +34,7 @@ app.get('/getDogFood', (req, res) => {
   let queryString = 'SELECT * FROM cibo WHERE specie=1';
   connection.query(queryString, function(err, result, fields) {
   if (err) throw err;
-  for (let i in result) {
-    console.log('name: ', result[i].Nome);
-  }
+  
   res.send(result)
   });
   })
@@ -45,9 +43,7 @@ app.get('/getCatFood', (req, res) => {
   let queryString = 'SELECT * FROM cibo WHERE specie=2';
   connection.query(queryString, function(err, result, fields) {
   if (err) throw err;
-  for (let i in result) {
-    console.log('name: ', result[i].Nome);
-  }
+  
   res.send(result)
   });
   })
@@ -56,9 +52,7 @@ app.get('/getDogFoodSecco', (req, res) => {
   let queryString = "SELECT * FROM cibo WHERE Specie=1 AND Consistenza='secco'";
   connection.query(queryString, function(err, result, fields) {
   if (err) throw err;
-  for (let i in result) {
-    console.log('name: ', result[i].Nome);
-  }
+  
   res.send(result)
   });
   })
@@ -67,9 +61,7 @@ app.get('/getCatFoodSecco', (req, res) => {
   let queryString = "SELECT * FROM cibo WHERE Specie=2 AND Consistenza='secco'";
   connection.query(queryString, function(err, result, fields) {
   if (err) throw err;
-  for (let i in result) {
-    console.log('name: ', result[i].Nome);
-  }
+  
   res.send(result)
   });
   })
@@ -78,9 +70,7 @@ app.get('/getDogFoodUmido', (req, res) => {
   let queryString = "SELECT * FROM cibo WHERE Specie=1 AND Consistenza='umido'";
   connection.query(queryString, function(err, result, fields) {
   if (err) throw err;
-  for (let i in result) {
-    console.log('name: ', result[i].Nome);
-  }
+  
   res.send(result)
   });
   })
@@ -89,9 +79,7 @@ app.get('/getCatFoodUmido', (req, res) => {
   let queryString = "SELECT * FROM cibo WHERE Specie=2 AND Consistenza='umido'";
   connection.query(queryString, function(err, result, fields) {
   if (err) throw err;
-  for (let i in result) {
-    console.log('name: ', result[i].Nome);
-  }
+  
   res.send(result)
   });
   })
@@ -102,9 +90,7 @@ app.get('/getCatFoodUmido', (req, res) => {
     let queryString = 'SELECT * FROM accessori WHERE specie=2';
     connection.query(queryString, function(err, result, fields) {
     if (err) throw err;
-    for (let i in result) {
-      console.log('name: ', result[i].Nome);
-    }
+    
     res.send(result)
     });
     })
@@ -113,9 +99,7 @@ app.get('/getCatFoodUmido', (req, res) => {
       let queryString = 'SELECT * FROM accessori WHERE specie=1';
       connection.query(queryString, function(err, result, fields) {
       if (err) throw err;
-      for (let i in result) {
-        console.log('name: ', result[i].Nome);
-      }
+      
       res.send(result)
       });
       })
@@ -124,9 +108,7 @@ app.get('/getCatFoodUmido', (req, res) => {
       let queryString = 'SELECT * FROM accessori WHERE specie=1 AND Tipo="gioco"';
       connection.query(queryString, function(err, result, fields) {
       if (err) throw err;
-      for (let i in result) {
-        console.log('name: ', result[i].Nome);
-      }
+      
       res.send(result)
       });
       })
@@ -135,9 +117,7 @@ app.get('/getCatFoodUmido', (req, res) => {
         let queryString = "SELECT * FROM accessori WHERE Specie=1 AND Tipo='guinzaglio'";
         connection.query(queryString, function(err, result, fields) {
         if (err) throw err;
-        for (let i in result) {
-          console.log('name: ', result[i].Nome);
-        }
+        
         res.send(result)
         });
         })
@@ -146,9 +126,7 @@ app.get('/getCatFoodUmido', (req, res) => {
         let queryString = "SELECT * FROM accessori WHERE Specie=1 AND Tipo='collare'";
         connection.query(queryString, function(err, result, fields) {
         if (err) throw err;
-        for (let i in result) {
-          console.log('name: ', result[i].Nome);
-        }
+        
         res.send(result)
         });
         })
@@ -157,9 +135,7 @@ app.get('/getCatFoodUmido', (req, res) => {
         let queryString = "SELECT * FROM accessori WHERE Specie=1 AND Tipo='ciotola'";
         connection.query(queryString, function(err, result, fields) {
         if (err) throw err;
-        for (let i in result) {
-          console.log('name: ', result[i].Nome);
-        }
+        
         res.send(result)
         });
         })
@@ -170,9 +146,6 @@ app.get('/getCatFoodUmido', (req, res) => {
         let queryString = "SELECT * FROM accessori WHERE Specie=2 AND Tipo='gioco'";
         connection.query(queryString, function(err, result, fields) {
         if (err) throw err;
-        for (let i in result) {
-          console.log('name: ', result[i].Nome);
-        }
         res.send(result)
         });
         })
@@ -181,9 +154,7 @@ app.get('/getCatFoodUmido', (req, res) => {
       let queryString = "SELECT * FROM accessori WHERE Specie=2 AND Tipo='tiragraffi'";
       connection.query(queryString, function(err, result, fields) {
       if (err) throw err;
-      for (let i in result) {
-        console.log('name: ', result[i].Nome);
-      }
+      
       res.send(result)
       });
       })
@@ -192,9 +163,7 @@ app.get('/getCatFoodUmido', (req, res) => {
       let queryString = "SELECT * FROM accessori WHERE Specie=2 AND Tipo='lettiera'";
       connection.query(queryString, function(err, result, fields) {
       if (err) throw err;
-      for (let i in result) {
-        console.log('name: ', result[i].Nome);
-      }
+      
       res.send(result)
       });
       })
@@ -203,9 +172,7 @@ app.get('/getCatFoodUmido', (req, res) => {
       let queryString = "SELECT * FROM accessori WHERE Specie=2 AND Tipo='ciotola'";
       connection.query(queryString, function(err, result, fields) {
       if (err) throw err;
-      for (let i in result) {
-        console.log('name: ', result[i].Nome);
-      }
+      
       res.send(result)
       });
       })
@@ -214,9 +181,7 @@ app.get('/getCatFoodUmido', (req, res) => {
       let queryString = "SELECT * FROM  catalogo ORDER BY Nome ASC";
       connection.query(queryString, function(err, result, fields) {
       if (err) throw err;
-      for (let i in result) {
-        console.log('name: ', result[i].Nome);
-      }
+     
       res.send(result)
       });
       })
@@ -235,7 +200,32 @@ app.get('/getCatFoodUmido', (req, res) => {
         connection.query(queryString, function(err, result) {
         if (err) throw err;
       });
-    //res.send("ordine effettuato:\n nome:"+ name+ " cognome: "+surname);
+      })
+
+      app.post('/generateMessage',(req,res)=>{
+        const name= req.body.name;
+        const email= req.body.email;
+        const message=req.body.message;
+        
+        console.log("nome:"+ name+ " \nemail: "+email+"\nmessage: "+ message);
+
+        let queryString = "INSERT into messaggi VALUES ('"+name+"' , '"+email+"' , '"+message+"'  ) ";
+        connection.query(queryString, function(err, result) {
+        if (err) throw err;
+      });
+      })
+
+      app.post('/generateNews',(req,res)=>{
+        const name= req.body.name;
+        const surname= req.body.surname;
+        const email=req.body.email;
+        
+        console.log("nome:"+ name+ " \ncognome: "+surname+"\nemail: "+ email);
+
+        let queryString = "INSERT into newsletter VALUES ('"+name+"' , '"+surname+"' , '"+email+"' ) ";
+        connection.query(queryString, function(err, result) {
+        if (err) throw err;
+      });
       })
 
 app.listen(process.env.PORT || 3001, ()=>{
