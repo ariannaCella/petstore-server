@@ -191,9 +191,7 @@ app.get('/getCatFoodUmido', (req, res) => {
         const address= req.body.customer.address;
         const products=req.body.order_details;
         
-        console.log("nome:"+ name+ " cognome: "+surname+"\n email"+email+" address: "+ address+ "\n orderdetails:"+products[0].Nome);
         TotOrder++;
-        console.log("json: "+JSON.stringify(products));
         let queryString = "INSERT into ordine VALUES ("+TotOrder+" , '"+name+"' , '"+surname+"' , '"+email+"' , '"+address+"' , '"+JSON.stringify(products)+"' ) ";
         connection.query(queryString, function(err, result) {
         if (err) throw err;
@@ -204,8 +202,6 @@ app.get('/getCatFoodUmido', (req, res) => {
         const name= req.body.name;
         const email= req.body.email;
         const message=req.body.message;
-        
-        console.log("nome:"+ name+ " \nemail: "+email+"\nmessage: "+ message);
 
         let queryString = "INSERT into messaggi VALUES ('"+name+"' , '"+email+"' , '"+message+"'  ) ";
         connection.query(queryString, function(err, result) {
@@ -217,8 +213,6 @@ app.get('/getCatFoodUmido', (req, res) => {
         const name= req.body.name;
         const surname= req.body.surname;
         const email=req.body.email;
-        
-        console.log("nome:"+ name+ " \ncognome: "+surname+"\nemail: "+ email);
 
         let queryString = "INSERT into newsletter VALUES ('"+name+"' , '"+surname+"' , '"+email+"' ) ";
         connection.query(queryString, function(err, result) {
