@@ -190,9 +190,10 @@ app.get('/getCatFoodUmido', (req, res) => {
         const email= req.body.customer.email;
         const address= req.body.customer.address;
         const products=req.body.order_details;
+        const price=req.body.price;
         
         TotOrder++;
-        let queryString = "INSERT into ordine VALUES ("+TotOrder+" , '"+name+"' , '"+surname+"' , '"+email+"' , '"+address+"' , '"+JSON.stringify(products)+"' ) ";
+        let queryString = "INSERT into ordine VALUES ("+TotOrder+" , '"+name+"' , '"+surname+"' , '"+email+"' , '"+address+"' , '"+JSON.stringify(products)+"' , "+price+") ";
         connection.query(queryString, function(err, result) {
         if (err) throw err;
       });
